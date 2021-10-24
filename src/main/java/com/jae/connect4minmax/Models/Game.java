@@ -7,14 +7,12 @@ import java.util.Arrays;
 
 public class Game {
     private int width, height;
-    private int searchDepth = 12;
+    private int searchDepth = 8;
     private int score = 100000;
 
     private boolean gameOver;
 
     private Board board;
-
-    public boolean playerTurn;
 
     public int iterations;
     public CellState[][] game_board;
@@ -48,7 +46,7 @@ public class Game {
 
     public int getIterations() { return this.iterations; }
 
-    public boolean isPlayerTurn() { return this.playerTurn; }
+    public boolean isPlayerTurn() { return this.board.isPlayerTurn(); }
 
     public boolean isGameOver() { return this.gameOver; }
 
@@ -158,7 +156,6 @@ public class Game {
             if(!this.board.place(column))
                 return false;
 
-            this.playerTurn = !this.playerTurn;
             this.updateStatus();
 
             return true;

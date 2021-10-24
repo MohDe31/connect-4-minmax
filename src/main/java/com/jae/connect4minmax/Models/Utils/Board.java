@@ -201,4 +201,8 @@ public class Board {
 
         return new Board(this.game, new_board, this.player);
     }
+
+    public boolean isPlayerTurn() {
+        return this.player == CellState.RED;
+    }
 }

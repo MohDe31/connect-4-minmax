@@ -5,20 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e266ee-cd41-45b9-a044-7c2dcd9243f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/CellState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/PlayAI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Data/GameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Renderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,6 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../connect-4-minma" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -46,7 +58,7 @@
       <module name="connect-4-minmax" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jae.connect4minmax.*" />
+          <option name="PATTERN" value="com.jae.connect4minmax.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
