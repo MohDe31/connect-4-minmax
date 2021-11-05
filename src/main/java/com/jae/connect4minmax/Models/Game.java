@@ -6,13 +6,16 @@ import com.jae.connect4minmax.Models.Utils.CellState;
 import java.util.Arrays;
 
 public class Game {
-    private int width, height;
-    private int searchDepth = 8;
-    private int score = 100000;
+    private final int width, height;
+    private final int searchDepth = 9;
+    private final int score = 100000;
+
+    private long lastTurnTime = 0;
 
     private boolean gameOver;
+    public int playerWon;
 
-    private Board board;
+    private final Board board;
 
     public int iterations;
     public CellState[][] game_board;
@@ -66,9 +69,14 @@ public class Game {
 
             this.place(ai_move.column);
 
-
-            System.out.println("Thinking time: " + (System.nanoTime() - currentTime) / 1000000 + "MS");
+            this.lastTurnTime = (System.nanoTime() - currentTime) / 1000000;
+            System.out.println("Thinking time: " + this.lastTurnTime + "MS");
         }
+    }
+
+    public long getLastTurnTime()
+    {
+        return lastTurnTime;
     }
 
     class ComputerPlayResult
@@ -148,20 +156,18 @@ public class Game {
         return min;
     }
 
-    public boolean place(int column)
+    public void place(int column)
     {
         // If not finished
         if (this.board.getScore() != this.score && this.board.getScore() != -this.score && !this.board.isFull())
         {
             if(!this.board.place(column))
-                return false;
+                return;
 
             this.updateStatus();
 
-            return true;
         }
 
-        return false;
     }
 
 
@@ -171,48 +177,44 @@ public class Game {
         // Human won
         if (this.board.getScore() == -this.score) {
             this.gameOver = true;
+            this.playerWon = 1;
         }
 
         // Computer won
         if (this.board.getScore() == this.score) {
             this.gameOver = true;
+            this.playerWon = 2;
         }
 
         // Tie
         if (this.board.isFull()) {
             this.gameOver = true;
+            this.playerWon = 0;
         }
     }
 
     public String toString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
 
-        //for(int j = this.width - 1; j >= 0; j-=1)
         for(int i = 0; i < this.height; i+=1)
         {
             for(int j = 0; j < this.width; j+=1)
             {
                 switch (this.game_board[i][j])
                 {
-                    case EMPTY -> {
-                        out += " ";
-                    }
+                    case EMPTY -> out.append(" ");
 
-                    case RED -> {
-                        out += "X";
-                    }
+                    case RED -> out.append("X");
 
-                    case YELLOW -> {
-                        out += "O";
-                    }
+                    case YELLOW -> out.append("O");
                 }
             }
 
-            out += "\n";
+            out.append("\n");
         }
 
 
-        return out;
+        return out.toString();
     }
 
     public CellState switchRound(CellState player)

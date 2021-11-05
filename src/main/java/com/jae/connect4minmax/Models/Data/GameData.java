@@ -2,7 +2,6 @@ package com.jae.connect4minmax.Models.Data;
 
 import com.jae.connect4minmax.Controllers.PlayAI;
 import com.jae.connect4minmax.Models.Game;
-import javafx.scene.canvas.GraphicsContext;
 
 public class GameData {
 
@@ -32,11 +31,11 @@ public class GameData {
         this.game = new Game(w, h);
     }
 
-    public void playAI()
+    public void playAI(Runnable renderFunc)
     {
         if( checkGameCreated() ) return;
 
-        this.aiThread = new PlayAI(this.game::generateComputerDecision);
+        this.aiThread = new PlayAI(this.game::generateComputerDecision, renderFunc);
         this.aiThread.start();
     }
 

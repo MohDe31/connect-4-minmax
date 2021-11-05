@@ -2,28 +2,33 @@ package com.jae.connect4minmax.Controllers;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.scene.canvas.GraphicsContext;
 
 public class PlayAI extends Service<Void> {
     public PlayAI instance;
 
     private Runnable aiFunction;
+    private Runnable renderFunc;
 
-    public PlayAI(Runnable aiFunction)
+    public PlayAI(Runnable aiFunction, Runnable renderFunc)
     {
         if(this.instance == null)
         {
             this.instance = this;
             this.aiFunction = aiFunction;
+
+            this.renderFunc = renderFunc;
         }
     }
 
     @Override
     protected Task<Void> createTask() {
-        return new Task<Void>() {
+        return new Task<>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
                 aiFunction.run();
+
+                renderFunc.run();
+
                 return null;
             }
         };

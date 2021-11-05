@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 public class Board {
 
-    private Game game;
-    private CellState[][] board;
+    private final Game game;
+    private final CellState[][] board;
     private CellState player;
 
 
@@ -24,7 +24,7 @@ public class Board {
         // 1. not empty 2. not exceeding the board size
         if (this.board[0][column] == CellState.EMPTY && column >= 0 && column < this.game.getWidth()) {
             // Bottom to top
-            for (var y = this.game.getHeight() - 1; y >= 0; y--) {
+            for (int y = this.game.getHeight() - 1; y >= 0; y--) {
                 if (this.board[y][column] == CellState.EMPTY) {
                     this.board[y][column] = this.player; // Set current player coin
                     break; // Break from loop after inserting
@@ -84,8 +84,8 @@ public class Board {
         // [ ][ ][ ][x][x][x][x] 3
         // [ ][ ][ ][ ][ ][ ][ ] 4
         // [ ][ ][ ][ ][ ][ ][ ] 5
-        for (var row = 0; row < this.game.getHeight(); row++) {
-            for (var column = 0; column < this.game.getWidth() - 3; column++) {
+        for (int row = 0; row < this.game.getHeight(); row++) {
+            for (int column = 0; column < this.game.getWidth() - 3; column++) {
                 int score = this.scorePosition(row, column, 0, 1);
                 if (score == this.game.getScore()) return this.game.getScore();
                 if (score == -this.game.getScore()) return -this.game.getScore();
@@ -105,8 +105,8 @@ public class Board {
         // [ ][ ][ ][x][ ][ ][ ] 3
         // [ ][ ][ ][ ][ ][ ][ ] 4
         // [ ][ ][ ][ ][ ][ ][ ] 5
-        for (var row = 0; row < this.game.getHeight() - 3; row++) {
-            for (var column = 0; column < this.game.getWidth() - 3; column++) {
+        for (int row = 0; row < this.game.getHeight() - 3; row++) {
+            for (int column = 0; column < this.game.getWidth() - 3; column++) {
                 int score = this.scorePosition(row, column, 1, 1);
                 if (score == this.game.getScore()) return this.game.getScore();
                 if (score == -this.game.getScore()) return -this.game.getScore();
@@ -124,8 +124,8 @@ public class Board {
         // [x][ ][ ][ ][ ][ ][ ] 3
         // [ ][ ][ ][ ][ ][ ][ ] 4
         // [ ][ ][ ][ ][ ][ ][ ] 5
-        for (var row = 3; row < this.game.getHeight(); row++) {
-            for (var column = 0; column <= this.game.getWidth() - 4; column++) {
+        for (int row = 3; row < this.game.getHeight(); row++) {
+            for (int column = 0; column <= this.game.getWidth() - 4; column++) {
                 int score = this.scorePosition(row, column, -1, +1);
                 if (score == this.game.getScore()) return this.game.getScore();
                 if (score == -this.game.getScore()) return -this.game.getScore();
@@ -144,7 +144,7 @@ public class Board {
         int computer_points = 0;
 
         // Determine score through amount of available chips
-        for (var i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
 
             if (this.board[row][column] == CellState.RED) {
                 //this.game.winning_array_human.push([row, column]);
@@ -186,16 +186,13 @@ public class Board {
 
     public boolean isFinished(int depth, int score)
     {
-        if (depth == 0 || score == this.game.getScore() || score == -this.game.getScore() || this.isFull()) {
-            return true;
-        }
-        return false;
+        return depth == 0 || score == this.game.getScore() || score == -this.game.getScore() || this.isFull();
     }
 
     public Board copy()
     {
         CellState[][] new_board = new CellState[this.game.getWidth()][this.game.getHeight()];
-        for (var i = 0; i < this.board.length; i++) {
+        for (int i = 0; i < this.board.length; i++) {
             new_board[i] = Arrays.copyOf(this.board[i], this.board[i].length);
         }
 

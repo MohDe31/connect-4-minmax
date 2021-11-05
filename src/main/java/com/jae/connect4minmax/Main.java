@@ -11,8 +11,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("connect4-minmax.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 720);
         stage.setTitle("Coonect-4");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
