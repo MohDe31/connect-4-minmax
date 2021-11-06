@@ -89,7 +89,7 @@ public class GameScene implements Renderable {
 
             int x = (int) mouseEvent.getX() / cellSize;
 
-            if(gameData.game.isPlayerTurn() && !gameData.game.isGameOver())
+            if(gameData.game.isPlayerTurn() && !gameData.game.isGameOver() && gameData.game.canPlay(x))
             {
                 gameData.playPlayer(x);
                 gameData.playAI();
@@ -120,12 +120,14 @@ public class GameScene implements Renderable {
             default -> "";
         };
 
+        ctx.setFill(new Color(0, 0, 0, 0.5));
+        ctx.fillRect(0, (this.canvasHeight >> 1) - 100, this.canvasWidth, 400);
 
-        this.ctx.setFont(this.biggerFont);
+        ctx.setFont(this.biggerFont);
         ctx.setFont(new Font(ctx.getFont().getFamily(), 100));
         ctx.setFill(Color.WHITE);
         ctx.fillText(winnerText, (this.canvasWidth >> 1) - 180, this.canvasHeight >> 1);
-        this.ctx.setFont(this.regularFont);
+        ctx.setFont(this.regularFont);
     }
 
     @Override

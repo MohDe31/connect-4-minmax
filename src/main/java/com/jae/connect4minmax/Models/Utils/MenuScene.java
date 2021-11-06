@@ -65,7 +65,7 @@ public class MenuScene implements Renderable{
         {
             this.ctx.setFill(Color.GRAY);
             if(this.selectedItem == i) this.ctx.setFill(Color.WHITE);
-            this.ctx.fillText(this.menuItems[i], 0, i * 50 + 50);
+            this.ctx.fillText(this.menuItems[i], (this.canvasWidth >> 1) - this.menuItems[i].length() * 7, i * 50 + 350);
         }
     }
 

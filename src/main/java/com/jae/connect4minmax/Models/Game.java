@@ -19,11 +19,14 @@ public class Game {
 
     public CellState[][] game_board;
 
+    private int[] col_height;
+
     public Game(int width, int height)
     {
         this.width = width;
         this.height = height;
 
+        this.col_height = new int[width];
         this.game_board = new CellState[this.height][this.width];
 
         for (int i = 0; i < this.height; i += 1) {
@@ -141,14 +144,21 @@ public class Game {
         return min;
     }
 
+
+    public boolean canPlay(int col)
+    {
+        return this.col_height[col] < this.height;
+    }
+
     public void place(int column)
     {
         // If not finished
-        if (this.board.getScore() != this.score && this.board.getScore() != -this.score && !this.board.isFull())
+        if (this.board.getScore() != this.score && this.board.getScore() != -this.score && !this.board.isFull() && this.canPlay(column))
         {
             if(!this.board.place(column))
                 return;
 
+            this.col_height[column]++;
             this.updateStatus();
 
         }

@@ -37,7 +37,6 @@ public class GameData extends EventEmitter {
         this.game = new Game(w, h);
     }
 
-
     public void playPlayer(int x)
     {
         if( checkGameCreated() ) return;
