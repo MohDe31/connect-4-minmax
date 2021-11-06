@@ -17,14 +17,7 @@ public class Game {
 
     private final Board board;
 
-    public int iterations;
     public CellState[][] game_board;
-
-    /*
-
-
-    public int[] columnHeight;
-*/
 
     public Game(int width, int height)
     {
@@ -37,7 +30,6 @@ public class Game {
             Arrays.fill(this.game_board[i], 0, this.width, CellState.EMPTY);
         }
 
-
         this.board = new Board(this, game_board, CellState.RED);
     }
 
@@ -46,8 +38,6 @@ public class Game {
     public int getHeight() { return this.height; }
 
     public int getScore() { return this.score; }
-
-    public int getIterations() { return this.iterations; }
 
     public boolean isPlayerTurn() { return this.board.isPlayerTurn(); }
 
@@ -59,7 +49,6 @@ public class Game {
     {
         if(this.board.getScore() != this.score && this.board.getScore() != -this.score && !this.board.isFull())
         {
-            this.iterations = 0;
 
             long currentTime = System.nanoTime();
 
@@ -108,8 +97,6 @@ public class Game {
 
             if (new_board.place(column)) {
 
-                this.iterations++; // Debug
-
                 ComputerPlayResult next_move = this.minimizePlay(new_board, depth - 1, alpha, beta); // Recursive calling
 
                 // Evaluate new move
@@ -138,8 +125,6 @@ public class Game {
             var new_board = board.copy();
 
             if (new_board.place(column)) {
-
-                this.iterations++;
 
                 ComputerPlayResult next_move = this.maximizePlay(new_board, depth - 1, alpha, beta);
 

@@ -1,19 +1,19 @@
 package com.jae.connect4minmax.Models.Utils;
 
+import com.jae.connect4minmax.Controllers.GameController;
 import com.jae.connect4minmax.Main;
 import com.jae.connect4minmax.Models.Data.GameData;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.net.URL;
 
-public class Renderer {
-
-    private final GraphicsContext ctx;
-    private final int cellSize;
+public class GameScene implements Renderable {
 
     private final GameData gameData;
 
@@ -21,6 +21,8 @@ public class Renderer {
     private final int canvasHeight;
 
     private final int topOffset;
+
+    private final int cellSize;
 
     private final Color backgroundColor = new Color(0, 0, 0, 1);
     private final Color cellDefaultColor = new Color(.3, .3, 1, 1);
@@ -31,14 +33,17 @@ public class Renderer {
     private final Font regularFont;
     private final Font biggerFont;
 
+    private final GraphicsContext ctx;
+
     private final String FONT_NAME = "ARCADECLASSIC.TTF";
 
-    public Renderer(GraphicsContext ctx, int resX, int resY)
+    public GameScene(GraphicsContext ctx, int resX, int resY)
     {
-        // SET GRAPHICS CONTEXT
+
+        GameData.getInstance().createNewGame(7, 6);
+
         this.ctx = ctx;
 
-        // GET THE GAMEDATA INSTANCE
         this.gameData = GameData.getInstance();
 
         this.cellSize = Math.min(resX / this.gameData.game.getWidth() ,resY / this.gameData.game.getHeight());
@@ -61,6 +66,9 @@ public class Renderer {
         this.gameData.on("TURN_FINISHED", this::render);
     }
 
+
+
+    @Override
     public EventHandler<MouseEvent> onMouseMoved()
     {
         return mouseEvent -> {
@@ -74,20 +82,31 @@ public class Renderer {
         };
     }
 
+    @Override
     public EventHandler<MouseEvent> onMouseClicked()
     {
-        Renderer renderer = this;
         return mouseEvent -> {
 
             int x = (int) mouseEvent.getX() / cellSize;
 
-            if(gameData.game.isPlayerTurn())
+            if(gameData.game.isPlayerTurn() && !gameData.game.isGameOver())
             {
                 gameData.playPlayer(x);
                 gameData.playAI();
             }
         };
     }
+
+    @Override
+    public EventHandler<KeyEvent> onKeyPressed() {
+        return keyEvent -> {
+            KeyCode pressedKey = keyEvent.getCode();
+
+            if(pressedKey == KeyCode.ESCAPE)
+                GameController.getInstance().setScene(Scene.MENU);
+        };
+    }
+
 
     public void drawWinScreen()
     {
@@ -109,6 +128,7 @@ public class Renderer {
         this.ctx.setFont(this.regularFont);
     }
 
+    @Override
     public void render()
     {
         ctx.setFill(this.backgroundColor);
@@ -159,5 +179,4 @@ public class Renderer {
             drawWinScreen();
         }
     }
-
 }
