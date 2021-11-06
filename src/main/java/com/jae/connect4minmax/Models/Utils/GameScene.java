@@ -64,9 +64,8 @@ public class GameScene implements Renderable {
         this.ctx.setFont(this.regularFont);
 
         this.gameData.on("TURN_FINISHED", this::render);
+
     }
-
-
 
     @Override
     public EventHandler<MouseEvent> onMouseMoved()
