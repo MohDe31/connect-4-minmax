@@ -5,27 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e266ee-cd41-45b9-a044-7c2dcd9243f1" name="Changes" comment="GUI Tweaks">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/ARCADECLASSIC.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/EventEmitter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/PlayAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/PlayAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Controllers/PlayAI.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Data/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Data/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Controllers/PlayAI.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Data/GameData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Data/GameData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Game$ComputerPlayResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Game$ComputerPlayResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Utils/Renderer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Utils/Renderer$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Utils/Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Models/Utils/Renderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/connect4-minmax.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

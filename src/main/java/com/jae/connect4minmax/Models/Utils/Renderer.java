@@ -35,9 +35,11 @@ public class Renderer {
 
     public Renderer(GraphicsContext ctx, int resX, int resY)
     {
+        // SET GRAPHICS CONTEXT
         this.ctx = ctx;
-        this.gameData = GameData.getInstance();
 
+        // GET THE GAMEDATA INSTANCE
+        this.gameData = GameData.getInstance();
 
         this.cellSize = Math.min(resX / this.gameData.game.getWidth() ,resY / this.gameData.game.getHeight());
 
@@ -56,6 +58,7 @@ public class Renderer {
 
         this.ctx.setFont(this.regularFont);
 
+        this.gameData.on("TURN_FINISHED", this::render);
     }
 
     public EventHandler<MouseEvent> onMouseMoved()
@@ -80,9 +83,8 @@ public class Renderer {
 
             if(gameData.game.isPlayerTurn())
             {
-                gameData.game.place(x);
-                render();
-                gameData.playAI(renderer::render);
+                gameData.playPlayer(x);
+                gameData.playAI();
             }
         };
     }
@@ -90,6 +92,8 @@ public class Renderer {
     public void drawWinScreen()
     {
         int winner = this.gameData.game.playerWon;
+
+        ctx.setFill(Color.BLUE);
         String winnerText = switch (winner) {
             case 0 -> "DRAW";
             case 1 -> "PLAYER WON";

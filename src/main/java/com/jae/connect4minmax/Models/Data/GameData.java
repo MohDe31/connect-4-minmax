@@ -1,16 +1,16 @@
 package com.jae.connect4minmax.Models.Data;
 
-import com.jae.connect4minmax.Controllers.PlayAI;
 import com.jae.connect4minmax.Models.Game;
+import com.jae.connect4minmax.Models.Utils.EventEmitter;
 
-public class GameData {
+import java.util.concurrent.*;
+
+public class GameData extends EventEmitter {
 
 
     public Game game;
 
     public static GameData instance;
-
-    PlayAI aiThread;
 
     private int selectedCol;
 
@@ -25,20 +25,32 @@ public class GameData {
         return instance;
     }
 
+    private void runAndEmitAsync(String eventName, Runnable runnable)
+    {
+        CompletableFuture.runAsync(runnable)
+                .thenRun(() -> this.emit(eventName));
+    }
+
 
     public void createNewGame(int w, int h)
     {
-        this.game = new Game(w, h);
+        this.runAndEmitAsync("GAME_CREATED", ()->this.game = new Game(w, h));
     }
 
-    public void playAI(Runnable renderFunc)
+
+    public void playPlayer(int x)
     {
         if( checkGameCreated() ) return;
 
-        this.aiThread = new PlayAI(this.game::generateComputerDecision, renderFunc);
-        this.aiThread.start();
+        this.runAndEmitAsync("TURN_FINISHED", () -> this.game.place(x));
     }
 
+    public void playAI()
+    {
+        if( checkGameCreated() ) return;
+
+        this.runAndEmitAsync("TURN_FINISHED", this.game::generateComputerDecision);
+    }
 
     private boolean checkGameCreated()
     {

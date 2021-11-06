@@ -1,6 +1,7 @@
 package com.jae.connect4minmax.Controllers;
 
 import com.jae.connect4minmax.Models.Data.GameData;
+import com.jae.connect4minmax.Models.Game;
 import com.jae.connect4minmax.Models.Utils.Renderer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
