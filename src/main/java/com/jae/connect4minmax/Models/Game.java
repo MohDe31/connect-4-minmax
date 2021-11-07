@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Game {
     private final int width, height;
-    private final int searchDepth = 9;
+    private int searchDepth = 9;
     private final int score = 100000;
 
     private long lastTurnTime = 0;
@@ -21,10 +21,12 @@ public class Game {
 
     private int[] col_height;
 
-    public Game(int width, int height)
+    public Game(int width, int height, int diff)
     {
         this.width = width;
         this.height = height;
+
+        this.searchDepth = diff;
 
         this.col_height = new int[width];
         this.game_board = new CellState[this.height][this.width];

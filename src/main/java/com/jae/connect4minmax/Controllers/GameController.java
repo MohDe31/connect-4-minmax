@@ -1,6 +1,5 @@
 package com.jae.connect4minmax.Controllers;
 
-import com.jae.connect4minmax.Models.Data.GameData;
 import com.jae.connect4minmax.Models.Utils.*;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -37,6 +36,7 @@ public class GameController {
         switch (scene) {
             case GAME -> activeScene = new GameScene(gameCanvas.getGraphicsContext2D(), (int) gameCanvas.getWidth(), (int) gameCanvas.getHeight());
             case MENU -> activeScene = new MenuScene(gameCanvas.getGraphicsContext2D(), (int) gameCanvas.getWidth(), (int) gameCanvas.getHeight());
+            case NEWGAME -> activeScene = new NewGameScene(gameCanvas.getGraphicsContext2D(), (int) gameCanvas.getWidth(), (int) gameCanvas.getHeight());
             default -> throw new IllegalStateException("Unexpected value: " + scene);
         }
 

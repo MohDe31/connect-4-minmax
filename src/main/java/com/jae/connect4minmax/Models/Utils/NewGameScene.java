@@ -2,6 +2,7 @@ package com.jae.connect4minmax.Models.Utils;
 
 import com.jae.connect4minmax.Controllers.GameController;
 import com.jae.connect4minmax.Main;
+import com.jae.connect4minmax.Models.Data.GameData;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
@@ -12,7 +13,7 @@ import javafx.scene.text.Font;
 
 import java.net.URL;
 
-public class MenuScene implements Renderable{
+public class NewGameScene implements Renderable {
 
     private final GraphicsContext ctx;
 
@@ -25,20 +26,28 @@ public class MenuScene implements Renderable{
 
     private final String FONT_NAME = "ARCADECLASSIC.TTF";
 
+    private int width = 7;
+    private int height = 6;
+
+    private int difficulty = 8;
+
     private final String[] menuItems = new String[]{
-            "NEW GAME", "QUIT"
+            "START", "WIDTH    " + width, "HEIGHT    " + height, "DIFFICULTY    " + difficulty, "BACK"
     };
 
     private final Runnable[] menuItemActions = new Runnable[]
             {
-                    () -> GameController.getInstance().setScene(Scene.NEWGAME),
-                    () -> System.exit(0)
+                    () -> {
+                        GameData.getInstance().createNewGame(this.width, this.height, this.difficulty);
+                        GameController.getInstance().setScene(Scene.GAME);
+                    },
+                    () -> {}, () -> {}, () -> {},
+                    () -> GameController.getInstance().setScene(Scene.MENU)
             };
 
     private int selectedItem = 0;
 
-
-    public MenuScene(GraphicsContext ctx, int resX, int resY)
+    public NewGameScene(GraphicsContext ctx, int resX, int resY)
     {
         this.ctx = ctx;
 
@@ -51,6 +60,8 @@ public class MenuScene implements Renderable{
 
         this.ctx.setFont(this.regularFont);
     }
+
+
 
     public void clear()
     {
@@ -82,6 +93,23 @@ public class MenuScene implements Renderable{
         this.menuItemActions[this.selectedItem].run();
     }
 
+    public void move_(int side)
+    {
+
+        switch (this.selectedItem)
+        {
+            case 1 -> this.width = Math.max(5, Math.min(this.width + side, 9));
+            case 2 -> this.height = Math.max(5, Math.min(this.height + side, 9));
+            case 3 -> this.difficulty = Math.max(1, Math.min(this.difficulty + side, 8));
+        }
+
+
+        this.menuItems[1] = "WIDTH    " + width;
+        this.menuItems[2] = "HEIGHT    " + height;
+        this.menuItems[3] = "DIFFICULTY    " + difficulty;
+
+    }
+
     @Override
     public EventHandler<MouseEvent> onMouseMoved() {
         return null;
@@ -101,6 +129,8 @@ public class MenuScene implements Renderable{
             {
                 case UP -> this.selectedItem = this.selectedItem == 0 ? this.menuItems.length - 1 : this.selectedItem - 1;
                 case DOWN -> this.selectedItem = (this.selectedItem + 1)  % this.menuItems.length;
+                case LEFT -> this.move_(-1);
+                case RIGHT -> this.move_(1);
                 case ENTER -> this.select();
             }
 

@@ -32,9 +32,9 @@ public class GameData extends EventEmitter {
     }
 
 
-    public void createNewGame(int w, int h)
+    public void createNewGame(int w, int h, int diff)
     {
-        this.game = new Game(w, h);
+        this.game = new Game(w, h, diff);
     }
 
     public void playPlayer(int x)

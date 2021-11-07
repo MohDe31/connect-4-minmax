@@ -40,7 +40,7 @@ public class GameScene implements Renderable {
     public GameScene(GraphicsContext ctx, int resX, int resY)
     {
 
-        GameData.getInstance().createNewGame(7, 6);
+        //GameData.getInstance().createNewGame(7, 6);
 
         this.ctx = ctx;
 
@@ -51,7 +51,6 @@ public class GameScene implements Renderable {
         this.canvasWidth = resX;
         this.canvasHeight = resY;
 
-        // int gameWidth = this.cellSize * this.gameData.game.getWidth();
         int gameHeight = this.cellSize * this.gameData.game.getHeight();
 
         URL arcadeClassicURL = Main.class.getResource(FONT_NAME);
