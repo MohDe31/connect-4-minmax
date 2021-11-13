@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("connect4-minmax.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 640, 720);
+        Scene scene = new Scene(fxmlLoader.load());
 
         GameController.getInstance().setScene(com.jae.connect4minmax.Models.Utils.Scene.MENU);
 

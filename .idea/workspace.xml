@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="14e266ee-cd41-45b9-a044-7c2dcd9243f1" name="Changes" comment="GUI Tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Utils/GameScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

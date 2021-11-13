@@ -21,6 +21,7 @@ public class GameScene implements Renderable {
     private final int canvasHeight;
 
     private final int topOffset;
+    private final int leftOffset;
 
     private final int cellSize;
 
@@ -46,19 +47,22 @@ public class GameScene implements Renderable {
 
         this.gameData = GameData.getInstance();
 
-        this.cellSize = Math.min(resX / this.gameData.game.getWidth() ,resY / this.gameData.game.getHeight());
+        this.topOffset = 175;
+
+        int gameHeight = resY - this.topOffset;
+
+        this.cellSize = Math.min(resX / this.gameData.game.getWidth() ,gameHeight / this.gameData.game.getHeight());
+
+        this.leftOffset = (resX - this.cellSize * this.gameData.game.getWidth()) / 2;
 
         this.canvasWidth = resX;
         this.canvasHeight = resY;
-
-        int gameHeight = this.cellSize * this.gameData.game.getHeight();
 
         URL arcadeClassicURL = Main.class.getResource(FONT_NAME);
 
         this.regularFont = Font.loadFont(arcadeClassicURL != null ? arcadeClassicURL.toString() : "", 30);
         this.biggerFont = Font.loadFont(arcadeClassicURL != null ? arcadeClassicURL.toString() : "", 100);
 
-        this.topOffset = this.canvasHeight - gameHeight;
 
         this.ctx.setFont(this.regularFont);
 
@@ -141,7 +145,7 @@ public class GameScene implements Renderable {
                 if(i == this.gameData.getSelectedCol())
                     ctx.setFill(Color.GRAY);
 
-                ctx.fillRect(i * cellSize + 1, j * cellSize + 1 + this.topOffset, cellSize - 2, cellSize - 2);
+                ctx.fillRect(i * cellSize + 1 + this.leftOffset, j * cellSize + 1 + this.topOffset, cellSize - 2, cellSize - 2);
 
                 ctx.setFill(this.backgroundColor);
 
@@ -151,7 +155,7 @@ public class GameScene implements Renderable {
                 if(this.gameData.game.game_board[j][i] == CellState.YELLOW)
                     ctx.setFill(this.player2);
 
-                ctx.fillRoundRect(i * cellSize + 1, j * cellSize + 1 + this.topOffset, cellSize - 2, cellSize - 2, this.cellSize, this.cellSize);
+                ctx.fillRoundRect(i * cellSize + 1 + this.leftOffset, j * cellSize + 1 + this.topOffset, cellSize - 2, cellSize - 2, this.cellSize, this.cellSize);
             }
 
 
