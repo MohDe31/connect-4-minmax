@@ -108,10 +108,17 @@ public class Game {
                 if (max.column == -1 || next_move.score > max.score) {
                     max.column = column;
                     max.score = next_move.score;
-                    alpha = next_move.score;
+                    //alpha = next_move.score;
                 }
 
-                if (alpha >= beta) return max;
+                if(max.score >= beta)
+                {
+                    return max;
+                }
+
+                alpha = Math.max(alpha, max.score);
+
+                //if (alpha >= beta) return max;
             }
         }
 
@@ -136,10 +143,16 @@ public class Game {
                 if (min.column == -1 || next_move.score < min.score) {
                     min.column = column;
                     min.score = next_move.score;
-                    beta = next_move.score;
+                    //beta = next_move.score;
+                }
+                if (min.score <= alpha)
+                {
+                    return min;
                 }
 
-                if (alpha >= beta) return min;
+                beta = Math.min(beta, min.score);
+
+                //if (alpha >= beta) return min;
 
             }
         }
