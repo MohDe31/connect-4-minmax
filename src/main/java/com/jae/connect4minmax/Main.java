@@ -17,7 +17,7 @@ public class Main extends Application {
 
         GameController.getInstance().setScene(com.jae.connect4minmax.Models.Utils.Scene.MENU);
 
-        stage.setTitle("Coonect-4");
+        stage.setTitle("Connect-4");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

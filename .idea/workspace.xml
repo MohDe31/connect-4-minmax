@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="14e266ee-cd41-45b9-a044-7c2dcd9243f1" name="Changes" comment="GUI Tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jae/connect4minmax/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/connect4-minmax.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jae/connect4minmax/connect4-minmax.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,19 +81,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634639538715</updated>
+      <workItem from="1636882349939" duration="493000" />
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
